@@ -67,25 +67,30 @@ namespace InternalGateway
             {
                 app.UseMultiTenancy();
             }
+
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Internal Gateway API");
             });
 
-            app.MapWhen(
-                ctx =>
-                    ctx.Request.Path.ToString().StartsWith("/api/abp/") ||
-                    ctx.Request.Path.ToString().StartsWith("/Abp/") ||
-                    ctx.Request.Path.ToString().StartsWith("/Test/"),
-                app2 =>
-                {
-                    app2.UseRouting();
-                    app2.UseConfiguredEndpoints();
-                }
-            );
+            //app.MapWhen(
+            //    ctx =>
+            //        ctx.Request.Path.ToString().StartsWith("/api/abp/") ||
+            //        ctx.Request.Path.ToString().StartsWith("/Abp/") ||
+            //        ctx.Request.Path.ToString().StartsWith("/Test/") ||
+            //        ctx.Request.Path.ToString().StartsWith("/swagger/"),
+            //    app2 =>
+            //    {
+            //        app2.UseRouting();
+            //        app2.UseConfiguredEndpoints();
+            //    }
+            //);
 
-            app.UseOcelot().Wait();
+            app.UseConfiguredEndpoints();
+
+            app.UseOcelot()
+                .Wait();
         }
     }
 }

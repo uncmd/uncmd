@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace InternalGateway
 {
     public class HomeController : AbpController
     {
-        public void Index()
+        public ActionResult Index()
         {
-            Redirect("/swagger/index.html");
+            return Redirect("/swagger");
         }
     }
 }
