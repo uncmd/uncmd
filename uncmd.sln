@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uncmd.Shared", "shared\Uncm
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "applications", "applications", "{B24C8F1A-C0F7-4BA6-BBAF-6DF50A538496}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer.Web", "applications\AuthServer.Web\AuthServer.Web.csproj", "{3348072C-ADAF-4A90-B9EB-98DCED868A7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer.Web", "applications\AuthServer.Web\AuthServer.Web.csproj", "{3348072C-ADAF-4A90-B9EB-98DCED868A7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClientDemo", "applications\ConsoleClientDemo\ConsoleClientDemo.csproj", "{EC27EB5E-BAE8-4F08-80AD-9CC535E2A674}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{3348072C-ADAF-4A90-B9EB-98DCED868A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3348072C-ADAF-4A90-B9EB-98DCED868A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3348072C-ADAF-4A90-B9EB-98DCED868A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC27EB5E-BAE8-4F08-80AD-9CC535E2A674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC27EB5E-BAE8-4F08-80AD-9CC535E2A674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC27EB5E-BAE8-4F08-80AD-9CC535E2A674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC27EB5E-BAE8-4F08-80AD-9CC535E2A674}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{9228DE61-9458-4328-9728-5E753CE0EBD4} = {E48F7577-A9E2-4454-B73C-7C36916D01CD}
 		{387EB76B-2C52-4209-960B-6BCFD2BB73AC} = {BD4C5285-520E-4B04-BDAB-3882FAE8195B}
 		{3348072C-ADAF-4A90-B9EB-98DCED868A7E} = {B24C8F1A-C0F7-4BA6-BBAF-6DF50A538496}
+		{EC27EB5E-BAE8-4F08-80AD-9CC535E2A674} = {B24C8F1A-C0F7-4BA6-BBAF-6DF50A538496}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F007CA9F-8816-45B9-BC9E-DC8F1A1A9C90}

@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0.0</Version>
+    <Authors>uncmd</Authors>
+    <Description>An abp microservice demo.</Description>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <PackageProjectUrl>https://uncmd.github.io/</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/uncmd/uncmd</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <!-- <PackageIcon>icon.jpg</PackageIcon> -->
+  </PropertyGroup>
+
+  <ItemGroup>
+	<!-- <None Include="images\icon.jpg" Pack="true" PackagePath="\"/> -->
+  </ItemGroup>
+</Project>
