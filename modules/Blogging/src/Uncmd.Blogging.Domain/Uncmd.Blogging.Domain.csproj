@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Uncmd.Blogging</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="2.9.0" />
+    <ProjectReference Include="..\Uncmd.Blogging.Domain.Shared\Uncmd.Blogging.Domain.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Uncmd.Blogging</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="2.9.0" />
+    <ProjectReference Include="..\Uncmd.Blogging.Application.Contracts\Uncmd.Blogging.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

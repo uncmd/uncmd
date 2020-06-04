@@ -9,10 +9,9 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/uncmd/uncmd</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <!-- <PackageIcon>icon.jpg</PackageIcon> -->
-  </PropertyGroup>
+  </PropertyGroup>>
 
   <ItemGroup>
-	<!-- <None Include="images\icon.jpg" Pack="true" PackagePath="\"/> -->
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
   </ItemGroup>
 </Project>
