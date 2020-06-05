@@ -107,10 +107,13 @@ namespace IdentityService.Host
             });
 
             app.UseAbpRequestLocalization(); //TODO: localization?
-            app.UseSwagger();
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "{documentName}/swagger.json";
+            });
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Identity Service API");
+                options.SwaggerEndpoint("/identity/swagger.json", "Identity Service API");
             });
             app.UseAuditing();
             app.UseConfiguredEndpoints();
