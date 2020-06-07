@@ -1,0 +1,89 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/identity/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 30010
+        }
+      ],
+      "UpstreamPathTemplate": "/api/identity/{everything}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get", "Post" ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      },
+      "SwaggerKey": "identity"
+    },
+    {
+      "DownstreamPathTemplate": "/api/multi-tenancy/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 30020
+        }
+      ],
+      "UpstreamPathTemplate": "/api/multi-tenancy/{everything}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get", "Post" ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      },
+      "SwaggerKey": "multi-tenancy"
+    },
+    {
+      "DownstreamPathTemplate": "/api/blogging/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 30000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/blogging/{everything}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get", "Post" ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      },
+      "SwaggerKey": "blogging"
+    }
+  ],
+
+  "SwaggerEndPoints": [
+    {
+      "Key": "identity",
+      "Config": [
+        {
+          "Name": "identity API",
+          "Version": "v1",
+          "Url": "http://localhost:30010/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "multi-tenancy",
+      "Config": [
+        {
+          "Name": "multi-tenancy API",
+          "Version": "v1",
+          "Url": "http://localhost:30020/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "blogging",
+      "Config": [
+        {
+          "Name": "blogging API",
+          "Version": "v1",
+          "Url": "http://localhost:30000/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost"
+  }
+}

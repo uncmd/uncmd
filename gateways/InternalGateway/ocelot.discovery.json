@@ -1,0 +1,83 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/identity/{everything}",
+      "ServiceName": "identity",
+      "UpstreamPathTemplate": "/api/identity/{everything}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get", "Post" ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      },
+      "SwaggerKey": "identity"
+    },
+    {
+      "DownstreamPathTemplate": "/api/multi-tenancy/{everything}",
+      "ServiceName": "multi-tenancy",
+      "UpstreamPathTemplate": "/api/multi-tenancy/{everything}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get", "Post" ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      },
+      "SwaggerKey": "multi-tenancy"
+    },
+    {
+      "DownstreamPathTemplate": "/api/blogging/{everything}",
+      "ServiceName": "blogging",
+      "UpstreamPathTemplate": "/api/blogging/{everything}",
+      "UpstreamHttpMethod": [ "Put", "Delete", "Get", "Post" ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      },
+      "SwaggerKey": "blogging"
+    }
+  ],
+
+  "SwaggerEndPoints": [
+    {
+      "Key": "identity",
+      "Config": [
+        {
+          "Name": "identity API",
+          "Version": "v1",
+          "Service": {
+            "Name": "identity",
+            "Path": "/swagger/v1/swagger.json"
+          }
+        }
+      ]
+    },
+    {
+      "Key": "multi-tenancy",
+      "Config": [
+        {
+          "Name": "multi-tenancy API",
+          "Version": "v1",
+          "Service": {
+            "Name": "multi-tenancy",
+            "Path": "/swagger/v1/swagger.json"
+          }
+        }
+      ]
+    },
+    {
+      "Key": "blogging",
+      "Config": [
+        {
+          "Name": "blogging API",
+          "Version": "v1",
+          "Url": "http://localhost:30000/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost",
+    "ServiceDiscoveryProvider": {
+      "Host": "xxx.xxx.xxx.xxx",
+      "Port": 8500,
+      "Type": "AppConfiguration",
+      "PollingIntervalSeconds": 10000
+    }
+  }
+}

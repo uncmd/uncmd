@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\core\src\Uncmd.Swagger\Uncmd.Swagger.csproj" />
     <ProjectReference Include="..\..\shared\Uncmd.Shared\Uncmd.Shared.csproj" />
   </ItemGroup>
 

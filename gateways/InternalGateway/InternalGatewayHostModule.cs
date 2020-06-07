@@ -28,44 +28,22 @@ namespace InternalGateway
         {
             var configuration = context.Services.GetConfiguration();
 
-            context.Services.AddMvc();
-            context.Services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Internal Gateway API", Version = "v1" });
-                options.DocInclusionPredicate((docName, description) => true);
-                options.CustomSchemaIds(type => type.FullName);
-            });
-
             context.Services.AddOcelot(context.Services.GetConfiguration());
+            context.Services.AddSwaggerForOcelot(configuration);
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
             var app = context.GetApplicationBuilder();
+            app.UsePathBase("/gateway");
 
-            app.UseCorrelationId();
-            app.UseVirtualFiles();
-            app.UseRouting();
-            app.UseAuthentication();
+            app.UseStaticFiles();
 
-            // get from service discovery later
-            var apiList = new List<string>()
+            app.UseSwaggerForOcelotUI(options =>
             {
-                "identity",
-                "multi-tenancy",
-                "blogging"
-            };
-            //app.UseMvc();
-            app.UseSwagger();
-            app.UseSwaggerUI(options =>
-            {
-                apiList.ForEach(apiItem =>
-                {
-                    options.SwaggerEndpoint($"/{apiItem}/swagger.json", $"{apiItem} API");
-                });
+                options.DownstreamSwaggerEndPointBasePath = "/gateway/swagger/docs";
+                options.PathToSwaggerGenerator = "/swagger/docs";
             });
-
-            app.UseConfiguredEndpoints();
 
             app.UseOcelot()
                 .Wait();
