@@ -12,7 +12,7 @@ namespace Uncmd.Blogging.EntityFrameworkCore
             var configuration = BuildConfiguration();
 
             var builder = new DbContextOptionsBuilder<BloggingHttpApiHostMigrationsDbContext>()
-                .UseSqlite(configuration.GetConnectionString("Blogging"));
+                .UseNpgsql(configuration.GetConnectionString("Blogging"));
 
             return new BloggingHttpApiHostMigrationsDbContext(builder.Options);
         }
