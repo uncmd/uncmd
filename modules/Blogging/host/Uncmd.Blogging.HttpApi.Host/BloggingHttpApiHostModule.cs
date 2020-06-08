@@ -24,7 +24,7 @@ using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
 using Uncmd.Shared;
-using Volo.Abp.EntityFrameworkCore.Sqlite;
+using Volo.Abp.EntityFrameworkCore.PostgreSql;
 
 namespace Uncmd.Blogging
 {
@@ -34,7 +34,7 @@ namespace Uncmd.Blogging
         typeof(BloggingHttpApiModule),
         typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
         typeof(AbpAutofacModule),
-        typeof(AbpEntityFrameworkCoreSqliteModule),
+        typeof(AbpEntityFrameworkCorePostgreSqlModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
@@ -51,7 +51,7 @@ namespace Uncmd.Blogging
 
             Configure<AbpDbContextOptions>(options =>
             {
-                options.UseSqlite();
+                options.UseNpgsql();
             });
 
             Configure<AbpMultiTenancyOptions>(options =>

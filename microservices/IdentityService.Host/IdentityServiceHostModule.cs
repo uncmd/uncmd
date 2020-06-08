@@ -19,14 +19,14 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
-using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Uncmd.Shared;
+using Volo.Abp.EntityFrameworkCore.PostgreSql;
 
 namespace IdentityService.Host
 {
     [DependsOn(
         typeof(AbpAutofacModule),
-        typeof(AbpEntityFrameworkCoreSqliteModule),
+        typeof(AbpEntityFrameworkCorePostgreSqlModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
@@ -69,7 +69,7 @@ namespace IdentityService.Host
 
             Configure<AbpDbContextOptions>(options =>
             {
-                options.UseSqlite();
+                options.UseNpgsql();
             });
 
             Configure<AbpAuditingOptions>(options =>

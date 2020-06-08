@@ -8,7 +8,7 @@ using Uncmd.Shared;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.MultiTenancy;
 using Volo.Abp.Autofac;
-using Volo.Abp.EntityFrameworkCore.Sqlite;
+using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Modularity;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
@@ -17,7 +17,7 @@ namespace InternalGateway
 {
     [DependsOn(
         typeof(AbpAutofacModule),
-        typeof(AbpEntityFrameworkCoreSqliteModule),
+        typeof(AbpEntityFrameworkCorePostgreSqlModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
         typeof(AbpTenantManagementHttpApiModule),
         typeof(AbpAspNetCoreMultiTenancyModule)

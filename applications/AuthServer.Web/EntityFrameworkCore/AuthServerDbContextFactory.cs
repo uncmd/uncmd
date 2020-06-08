@@ -12,7 +12,7 @@ namespace AuthServer.Host.EntityFrameworkCore
             var configuration = BuildConfiguration();
 
             var builder = new DbContextOptionsBuilder<AuthServerDbContext>()
-                .UseSqlite(configuration.GetConnectionString("Default"));
+                .UseNpgsql(configuration.GetConnectionString("Default"));
 
             return new AuthServerDbContext(builder.Options);
         }
