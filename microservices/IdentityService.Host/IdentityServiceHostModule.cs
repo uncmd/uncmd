@@ -21,6 +21,10 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Uncmd.Shared;
 using Volo.Abp.EntityFrameworkCore.PostgreSql;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Newtonsoft.Json;
 
 namespace IdentityService.Host
 {
@@ -77,6 +81,9 @@ namespace IdentityService.Host
                 options.IsEnabledForGetRequests = true;
                 options.ApplicationName = "IdentityService";
             });
+
+            context.Services.AddHealthChecks()
+                .AddNpgSql("Host=150.158.107.66; Port=5432; User Id=postgres; Password=xxxxxx; Database=auth;");
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -114,6 +121,33 @@ namespace IdentityService.Host
             });
             app.UseAuditing();
             app.UseConfiguredEndpoints();
+
+            app.UseHealthChecks("/healthChecks", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+            {
+                ResponseWriter = WriteResponse,
+                ResultStatusCodes = new Dictionary<HealthStatus, int>
+                {
+                    { HealthStatus.Healthy, 200 },
+                    { HealthStatus.Unhealthy, 420 },
+                    { HealthStatus.Degraded, 403 }
+                }
+            });
+        }
+
+        private static Task WriteResponse(HttpContext context, HealthReport healthReport)
+        {
+            context.Response.ContentType = "application/json";
+            var result = JsonConvert.SerializeObject(new
+            {
+                code = context.Response.StatusCode,
+                errors = healthReport.Entries.Select(p => new
+                {
+                    key = p.Key,
+                    value = p.Value.Status.ToString()
+                })
+            });
+
+            return context.Response.WriteAsync(result);
         }
     }
 }
