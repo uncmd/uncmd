@@ -59,9 +59,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService.Host", "mic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TenantManagementService.Host", "microservices\TenantManagementService.Host\TenantManagementService.Host.csproj", "{BEAEE3C0-E6BC-4C10-85AA-42B3F11BF30B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uncmd.Swagger", "core\src\Uncmd.Swagger\Uncmd.Swagger.csproj", "{870F42F3-C4C7-4F19-A7DE-04A8AF55D48A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uncmd.Swagger", "core\src\Uncmd.Swagger\Uncmd.Swagger.csproj", "{870F42F3-C4C7-4F19-A7DE-04A8AF55D48A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uncmd", "core\src\Uncmd\Uncmd.csproj", "{6DB771A7-D25A-4B07-A354-5539FEB9D73E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uncmd", "core\src\Uncmd\Uncmd.csproj", "{6DB771A7-D25A-4B07-A354-5539FEB9D73E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UncmdBlazor", "applications\UncmdBlazor\UncmdBlazor.csproj", "{A48DABEA-B7D8-4834-A0A6-92B4DB6D5433}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +147,10 @@ Global
 		{6DB771A7-D25A-4B07-A354-5539FEB9D73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DB771A7-D25A-4B07-A354-5539FEB9D73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DB771A7-D25A-4B07-A354-5539FEB9D73E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A48DABEA-B7D8-4834-A0A6-92B4DB6D5433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A48DABEA-B7D8-4834-A0A6-92B4DB6D5433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A48DABEA-B7D8-4834-A0A6-92B4DB6D5433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A48DABEA-B7D8-4834-A0A6-92B4DB6D5433}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -174,6 +180,7 @@ Global
 		{BEAEE3C0-E6BC-4C10-85AA-42B3F11BF30B} = {6E49C599-1C37-4773-BAAE-A6BE1E42596C}
 		{870F42F3-C4C7-4F19-A7DE-04A8AF55D48A} = {6E8728AD-BAAA-4F39-83C3-6A8B45374F5A}
 		{6DB771A7-D25A-4B07-A354-5539FEB9D73E} = {6E8728AD-BAAA-4F39-83C3-6A8B45374F5A}
+		{A48DABEA-B7D8-4834-A0A6-92B4DB6D5433} = {B24C8F1A-C0F7-4BA6-BBAF-6DF50A538496}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F007CA9F-8816-45B9-BC9E-DC8F1A1A9C90}
